@@ -8,7 +8,7 @@ const { sequelize } = require('./orm');
 const error = require('./middleware/error');
 
 // Load the router generator function
-const generateRouters = require('./routers/generate');
+const generateRouters = require('./routes/generate');
 
 // Generate routers for each Sequelize model
 const routers = generateRouters(sequelize.models);

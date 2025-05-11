@@ -1,5 +1,8 @@
 const { Sequelize } = require('sequelize');
-const { DB_CONFIG } = require(`./config`);
+
+// Load constants from the config modules
+const { DATA_PATH } = require('./config/env');
+const { DB_CONFIG } = require(`./config/db`);
 
 // Load the YAML file merging function
 const { mergeYaml } = require('./utils/yaml');
@@ -11,8 +14,7 @@ const generateModels = require('./models/generate');
 const sequelize = new Sequelize(DB_CONFIG);
 
 // Merge the model definition YAML files
-const yamlPath = './src/data/models';
-const mergedYaml = mergeYaml(yamlPath);
+const mergedYaml = mergeYaml(DATA_PATH);
 
 // Generate Sequelize models from the YAML
 generateModels(mergedYaml, sequelize);
