@@ -1,16 +1,16 @@
 const path = require('path');
 
 // Application configuration
-const NODE_ENV = 'local';
+const NODE_ENV = 'test';
 const APP_PORT = process.env.PORT || 3000;
 
 // Database configuration
-const DB_STORAGE = path.join(__dirname, '../../local.db');
+const DB_STORAGE = ':memory:';
 const DB_DIALECT = 'sqlite';
 const DB_CONFIG = {
   dialect: DB_DIALECT,
   storage: DB_STORAGE,
-  logging: true,
+  logging: false,
 };
 
 // Database sync options

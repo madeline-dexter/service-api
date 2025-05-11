@@ -1,0 +1,28 @@
+User:
+  tableName: user
+  fields:
+    id:
+      type: INTEGER
+      primaryKey: true
+      autoIncrement: true
+    name:
+      type: STRING
+      allowNull: false
+    email:
+      type: STRING
+      allowNull: false
+      unique: true
+    password:
+      type: STRING
+      allowNull: false
+  options:
+    timestamps: true
+    underscored: true
+  # associations:
+  #   - type: belongsToMany
+  #     through: UserRole
+  #     foreignKey: roleId
+  #     as: users
+  #   # - type: hasMany
+  #   #   foreignKey: userId
+  #   #   as: users

@@ -1,0 +1,3 @@
+name,description
+"admin","Administrator role with all permissions"
+"viewer","Viewer role with read-only access"

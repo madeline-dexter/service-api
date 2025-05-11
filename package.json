@@ -4,13 +4,14 @@
   "main": "src/app.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/server.js"
+    "start": "NODE_ENV=local node src/index.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
+    "js-yaml": "^4.1.0",
     "morgan": "^1.10.0",
     "sequelize": "^6.37.7"
   },

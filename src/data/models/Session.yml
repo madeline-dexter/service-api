@@ -1,0 +1,25 @@
+Session:
+  tableName: session
+  fields:
+    id:
+      type: INTEGER
+      primaryKey: true
+      autoIncrement: true
+    userId:
+      type: STRING
+      allowNull: false
+      unique: true
+    token:
+      type: STRING
+      allowNull: false
+      unique: true
+    ipAddress:
+      type: STRING
+      allowNull: false
+    expiresAt:
+      type: DATE
+    terminatedAt:
+      type: DATE
+  options:
+    timestamps: true
+    underscored: true

@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 // Application configuration
-const NODE_ENV = 'dev';
+const NODE_ENV = 'prod';
 const APP_PORT = process.env.PORT || 3000;
 
 // Database configuration
