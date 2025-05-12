@@ -1,5 +1,3 @@
 const errorMiddleware = require('./error');
 
-module.exports = {
-  errorMiddleware,
-};
+module.exports = { errorMiddleware };

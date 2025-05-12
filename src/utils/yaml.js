@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-// Parse and merge all YAML files in a directory
+// Parse and merge YAML files in a directory
 const mergeYaml = (directoryPath) => {
   const mergedYaml = {};
 

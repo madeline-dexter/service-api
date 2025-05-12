@@ -1,24 +1,17 @@
 const express = require('express');
 const morgan = require('morgan');
 
-// Load the Sequelize instance and models
 const { sequelize } = require('./orm');
-
-// Load the route generator function
 const { generateRoutes } = require('./routes');
+const { errorMiddleware } = require('./middleware');
 
-// Load the error handling middleware
-const error = require('./middleware/error');
-
-// Initialize and configure the Express app
+// Initialize the Express app
 const app = express();
 app.use(morgan('tiny'));
 app.use(express.json());
+app.use(errorMiddleware);
 
-// Generate routers for each Sequelize model
+// Generate the Express routes
 generateRoutes(app, sequelize);
-
-// Configure the app to use the error middleware
-app.use(error);
 
 module.exports = app;
