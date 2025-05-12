@@ -1,21 +1,19 @@
 const express = require('express');
 
 /**
- * Generate routers for all Sequelize models.
- * @param {Object} models - An object containing Sequelize models.
- * @returns {Object} - An object containing the generated routers.
+ * Generate routes for Sequelize models.
+ * @param {Object} app - An Express app instance.
+ * @param {Sequelize} sequelize - A Sequelize instance.
  */
 
-const generateRouters = (models) => {
-  const routers = {};
-
+module.exports = (app, sequelize) => {
   // Error message for not found records
-  const error404 = (modelName) => ({
-    error: `${modelName} not found`,
+  const error404 = (modelName) => ({ 
+    error: `${modelName} not found`, 
   });
 
   // Create the routers for each model
-  Object.entries(models).forEach(([modelName, model]) => {
+  Object.entries(sequelize.models).forEach(([modelName, model]) => {
     const router = express.Router();
 
     // Create a new record
@@ -54,10 +52,6 @@ const generateRouters = (models) => {
       res.status(200).json(record);
     });
 
-    routers[modelName] = router;
+    app.use('/', router);
   });
-
-  return routers;
 };
-
-module.exports = generateRouters;

@@ -1,7 +1,7 @@
 const path = require('path');
 const { SQLITE_PATH } = require('./env');
 
-// Define database configuration
+// Define database environment variables
 const DB_DATABASE = process.env.DB_DATABASE || 'user';
 const DB_USERNAME = process.env.DB_USERNAME || 'admin';
 const DB_PASSWORD = process.env.DB_PASSWORD || 'password';
@@ -12,6 +12,7 @@ const DB_DIALECT = process.env.DB_DIALECT || 'sqlite';
 const DB_STORAGE = path.join(__dirname, `../../${SQLITE_PATH}`);
 const DB_CONFIG = { dialect: DB_DIALECT };
 
+// Define database configuration for export
 if (DB_DIALECT === 'sqlite') {
     DB_CONFIG.storage = DB_STORAGE
 } else {

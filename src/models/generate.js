@@ -1,16 +1,14 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 /**
- * Generate Sequelize models from a YAML object.
+ * Generate Sequelize models.
+ * @param {Object} models - An object defining Sequelize models.
  * @param {Sequelize} sequelize - A Sequelize instance.
- * @returns {Object} - An object containing the generated models.
  */
 
-const generateModels = (modelYaml, sequelize) => {
-  const models = {};
-
+module.exports = (models, sequelize) => {
   // Define the Sequelize models
-  for (const [modelName, modelConfig] of Object.entries(modelYaml)) {
+  for (const [modelName, modelConfig] of Object.entries(models)) {
     const { tableName, fields, options } = modelConfig;
 
     // Convert field types to Sequelize DataTypes
@@ -48,5 +46,3 @@ const generateModels = (modelYaml, sequelize) => {
   //   }
   // }
 };
-
-module.exports = generateModels;
