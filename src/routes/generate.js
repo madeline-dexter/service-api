@@ -8,8 +8,8 @@ const express = require('express');
 
 module.exports = (app, sequelize) => {
   // Error message for not found records
-  const error404 = (modelName) => ({ 
-    error: `${modelName} not found`, 
+  const error404 = (modelName) => ({
+    error: `${modelName} not found`,
   });
 
   // Create the routers for each model

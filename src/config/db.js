@@ -14,14 +14,14 @@ const DB_CONFIG = { dialect: DB_DIALECT };
 
 // Define database configuration for export
 if (DB_DIALECT === 'sqlite') {
-    DB_CONFIG.storage = DB_STORAGE
+  DB_CONFIG.storage = DB_STORAGE;
 } else {
-    DB_CONFIG.database = DB_DATABASE;
-    DB_CONFIG.username = DB_USERNAME;
-    DB_CONFIG.password = DB_PASSWORD;
-    DB_CONFIG.host = DB_HOST;
-    DB_CONFIG.port = DB_PORT;
-};
+  DB_CONFIG.database = DB_DATABASE;
+  DB_CONFIG.username = DB_USERNAME;
+  DB_CONFIG.password = DB_PASSWORD;
+  DB_CONFIG.host = DB_HOST;
+  DB_CONFIG.port = DB_PORT;
+}
 
 // Define Sequelize database sync option
 const DB_SYNC_OPTIONS = { force: true };

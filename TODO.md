@@ -2,6 +2,7 @@
 
 ## To-Do list
 
-- Add a function to load seed data on DB reset
-- Implement authentication middleware
+- Implement seed data loading
 - Implement NPM packaging
+- Implement authentication middleware
+- Implement dynamic testing
