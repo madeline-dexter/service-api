@@ -1,44 +1,43 @@
 name: NPM Service API
 description: |
   This workflow automates the process of pushing the service-api package to the NPM registry.
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: |
+  ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches:
       - master
 jobs:
-  Explore-GitHub-Actions:
+  deploy:
     runs-on: ubuntu-latest
-    # steps:
-      # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      # - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      # - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      # - name: Check out repository code
-      #   uses: actions/checkout@v4
-      # - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      # - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      # - name: List files in the repository
-      #   run: |
-      #     ls ${{ github.workspace }}
-      # - run: echo "🍏 This job's status is ${{ job.status }}."
 
     steps:
+      - run: echo "💡 Checking out the ${{ github.repository }} repository"
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - run: echo "💡 Installing Node.js v16 on the runner"
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16' # Use the desired Node.js version
           cache: 'npm' # Cache NPM dependencies
 
+      - run: echo "💡 Installing dependencies for ${{ github.repository }}"
       - name: Install dependencies
         run: npm install
 
+      # - run: "💡 Running tests for ${{ github.repository }}"
       # - name: Run tests
       #   run: npm test
 
+      - run: echo "💡 Publishing ${{ github.repository }} to the NPM registry"
       - name: Publish to NPM
+        run: npm publish --registry https://npm.pkg.github.com/${{ github.repository_owner }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # Use the NPM token stored in GitHub Secrets
-        run: npm publish
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: List files in the repository
+      - run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
