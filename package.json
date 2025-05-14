@@ -4,11 +4,18 @@
   "main": "src/app.js",
   "scripts": {
     "test": "jest",
-    "start": "NODE_ENV=local node src/index.js"
+    "start": "node src/index.js"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madeline-dexter/service-api.git"
+  },
+  "author": "Madeline Dexter",
+  "license": "MIT",
+  "description": "A dynamically generated REST API built with Express and Sequelize.",
   "dependencies": {
     "express": "^5.1.0",
     "js-yaml": "^4.1.0",

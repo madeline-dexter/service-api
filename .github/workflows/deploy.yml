@@ -2,7 +2,7 @@ name: NPM Service API
 description: |
   This workflow automates the process of pushing the service-api package to the NPM registry.
 run-name: |
-  ${{ github.actor }} is testing out GitHub Actions 🚀
+  ${{ github.actor }} is deploying service-api to GitHub Packages 🚀
 on:
   push:
     branches:
