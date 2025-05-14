@@ -12,33 +12,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "💡 Checking out the ${{ github.repository }} repository"
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - run: echo "💡 Installing Node.js v16 on the runner"
-      - name: Install Node.js
+      - name: Install Node.js on the runner
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Use the desired Node.js version
-          cache: 'npm' # Cache NPM dependencies
+          node-version: '16'
+          cache: 'npm'
 
-      - run: echo "💡 Installing dependencies for ${{ github.repository }}"
-      - name: Install dependencies
+      - name: Configure NPM to use GitHub Packages
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+      
+      - name: Install package dependencies 
         run: npm install
 
-      # - run: "💡 Running tests for ${{ github.repository }}"
       # - name: Run tests
       #   run: npm test
 
-      - run: echo "💡 Publishing ${{ github.repository }} to the NPM registry"
-      - name: Publish to NPM
+      - name: Publish to NPM registry
         run: npm publish --registry https://npm.pkg.github.com/${{ github.repository_owner }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-
-      - run: echo "🍏 This job's status is ${{ job.status }}."
