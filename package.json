@@ -1,5 +1,5 @@
 {
-  "name": "service-api",
+  "name": "@madeline-dexter/service-api",
   "version": "1.0.0",
   "main": "src/app.js",
   "scripts": {
@@ -15,7 +15,11 @@
   },
   "author": "Madeline Dexter",
   "license": "MIT",
-  "description": "A dynamically generated REST API built with Express and Sequelize.",
+  "description": "A dynamic REST API built with Express and Sequelize.",
+  "files": [
+    "src/",
+    "package.json"
+  ],
   "dependencies": {
     "express": "^5.1.0",
     "js-yaml": "^4.1.0",

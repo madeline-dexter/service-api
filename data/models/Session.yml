@@ -9,6 +9,11 @@ Session:
       type: STRING
       allowNull: false
       unique: true
+      associations:
+        - type: belongsTo
+          target: User
+          options:
+            foreignKey: userId
     token:
       type: STRING
       allowNull: false

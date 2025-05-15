@@ -5,6 +5,13 @@ Role:
       type: INTEGER
       primaryKey: true
       autoIncrement: true
+      associations:
+        - type: belongsToMany
+          target: User
+          options:
+            through: user_role
+            foreignKey: roleId
+            as: users
     name:
       type: STRING
       allowNull: false
@@ -15,8 +22,3 @@ Role:
   options:
     timestamps: true
     underscored: true
-  # associations:
-  #   - type: belongsToMany
-  #     through: UserRole
-  #     foreignKey: userId
-  #     as: roles

@@ -140,8 +140,8 @@ The API returns errors in the following JSON format:
 ├── /models         # Sequelize models
 ├── /routes         # Route definitions
 ├── /utils          # Utility functions
-├── app.js          # Express app
-├── index.js        # App entrypoint
+├── app.js          # Express application
+├── index.js        # Application entrypoint
 ├── orm.js          # Sequelize initialization
 ```
 

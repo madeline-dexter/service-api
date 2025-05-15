@@ -24,8 +24,8 @@ jobs:
       - name: Configure NPM to use GitHub Packages
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-      
-      - name: Install package dependencies 
+
+      - name: Install package dependencies
         run: npm install
 
       # - name: Run tests

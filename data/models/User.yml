@@ -5,6 +5,16 @@ User:
       type: INTEGER
       primaryKey: true
       autoIncrement: true
+      associations:
+        - type: belongsToMany
+          target: Role
+          options:
+            foreignKey: userId
+            through: user_role
+        - type: hasMany
+          target: Session
+          options:
+            foreignKey: userId
     name:
       type: STRING
       allowNull: false
@@ -18,11 +28,3 @@ User:
   options:
     timestamps: true
     underscored: true
-  # associations:
-  #   - type: belongsToMany
-  #     through: UserRole
-  #     foreignKey: roleId
-  #     as: users
-  #   # - type: hasMany
-  #   #   foreignKey: userId
-  #   #   as: users

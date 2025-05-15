@@ -1,0 +1,12 @@
+UserRole:
+  tableName: user_role
+  fields:
+    userId:
+      type: INTEGER
+      primaryKey: true
+    roleId:
+      type: INTEGER
+      primaryKey: true
+  options:
+    timestamps: false
+    underscored: true
